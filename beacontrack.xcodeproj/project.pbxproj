@@ -14,7 +14,7 @@
 		E26C42731C410CAD00F3403A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E26C42711C410CAD00F3403A /* LaunchScreen.xib */; };
 		E26C427F1C410CAD00F3403A /* beacontrackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26C427E1C410CAD00F3403A /* beacontrackTests.swift */; };
 		E26C428E1C4111EB00F3403A /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = E26C428D1C4111EB00F3403A /* Podfile */; };
-		E351C642638872D15C23AA2C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BDC8C296D6279288C49FF88F /* libPods.a */; };
+		E351C642638872D15C23AA2C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BDC8C296D6279288C49FF88F /* libPods.a */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,8 +40,8 @@
 		E26C42781C410CAD00F3403A /* beacontrackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = beacontrackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E26C427D1C410CAD00F3403A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E26C427E1C410CAD00F3403A /* beacontrackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = beacontrackTests.swift; sourceTree = "<group>"; };
-		E26C428C1C4110B400F3403A /* ObjCBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCBridge.h; sourceTree = "<group>"; };
 		E26C428D1C4111EB00F3403A /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		E26C428F1C41184C00F3403A /* ObjCBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCBridge.h; sourceTree = "<group>"; };
 		EF96E696AED445FA393DAED1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,6 +84,7 @@
 		E26C425A1C410CAD00F3403A = {
 			isa = PBXGroup;
 			children = (
+				E26C428F1C41184C00F3403A /* ObjCBridge.h */,
 				E26C428D1C4111EB00F3403A /* Podfile */,
 				E26C42651C410CAD00F3403A /* beacontrack */,
 				E26C427B1C410CAD00F3403A /* beacontrackTests */,
@@ -107,7 +108,6 @@
 			children = (
 				E26C42681C410CAD00F3403A /* AppDelegate.swift */,
 				E26C426A1C410CAD00F3403A /* ViewController.swift */,
-				E26C428C1C4110B400F3403A /* ObjCBridge.h */,
 				E26C426C1C410CAD00F3403A /* Main.storyboard */,
 				E26C426F1C410CAD00F3403A /* Images.xcassets */,
 				E26C42711C410CAD00F3403A /* LaunchScreen.xib */,
@@ -422,11 +422,15 @@
 			baseConfigurationReference = EF96E696AED445FA393DAED1 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = beacontrack/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = beacontrack/ObjCBridge.h;
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/vivek/ios/beacontrack/ObjCBridge.h;
 			};
 			name = Debug;
 		};
@@ -435,11 +439,15 @@
 			baseConfigurationReference = 7376D6501C42AF9BC1B09A74 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = beacontrack/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = beacontrack/ObjCBridge.h;
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/vivek/ios/beacontrack/ObjCBridge.h;
 			};
 			name = Release;
 		};

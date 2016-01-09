@@ -19,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
         // Override point for customization after application launch.
         self.beaconManager.delegate = self
         
+        self.beaconManager.requestAlwaysAuthorization()
+        
         return true
     }
 
