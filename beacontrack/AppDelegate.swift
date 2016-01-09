@@ -21,6 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
         
         self.beaconManager.requestAlwaysAuthorization()
         
+        UIApplication.sharedApplication().registerUserNotificationSettings(
+            UIUserNotificationSettings(forTypes: .Alert, categories: nil))
+        
+        self.beaconManager.startMonitoringForRegion(CLBeaconRegion(
+            proximityUUID: NSUUID(UUIDString: "33F71DAF-D05D-4AF3-AE70-D6BB2FC271A1")!,
+            major: 65502, minor: 43582, identifier: "inkoop office"))
+        
         return true
     }
 
@@ -44,6 +51,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    func beaconManager(manager: AnyObject, didEnterRegion region: CLBeaconRegion) {
+        let notification = UILocalNotification()
+        notification.alertBody = "Office time tracking Started"
+        UIApplication.sharedApplication().presentLocalNotificationNow(notification)
+    }
+    
+    func beaconManager(manager: AnyObject, didExitRegion region: CLBeaconRegion) {
+        let notification = UILocalNotification()
+        notification.alertBody = "Office time tracking Stopped"
+        UIApplication.sharedApplication().presentLocalNotificationNow(notification)
     }
 
 
