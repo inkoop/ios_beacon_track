@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate {
@@ -14,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
     var window: UIWindow?
     
     let beaconManager = ESTBeaconManager()
+    let category = "Office"
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -57,14 +59,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
         let notification = UILocalNotification()
         notification.alertBody = "Office time tracking Started"
         UIApplication.sharedApplication().presentLocalNotificationNow(notification)
+        Alamofire.request(.POST, "https://inkoop-beacon-track.herokuapp.com/api/1/tracks.json?api_key=fec7cb71dcabf40b346a", parameters: [ "category": category, "track": "0" ])
     }
     
     func beaconManager(manager: AnyObject, didExitRegion region: CLBeaconRegion) {
         let notification = UILocalNotification()
         notification.alertBody = "Office time tracking Stopped"
         UIApplication.sharedApplication().presentLocalNotificationNow(notification)
+        Alamofire.request(.POST, "https://inkoop-beacon-track.herokuapp.com/api/1/tracks.json?api_key=fec7cb71dcabf40b346a", parameters: [ "category": category, "track": "1" ])
     }
 
 
 }
-

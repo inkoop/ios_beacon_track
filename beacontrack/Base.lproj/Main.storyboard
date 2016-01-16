@@ -17,51 +17,68 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Time spent in office today - " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hHA-Gv-nVC">
-                                <rect key="frame" x="20" y="28" width="555" height="31"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <accessibility key="accessibilityConfiguration" label="timeSpentTodayText"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="20" y="63" width="360" height="36"/>
-                                </variation>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Time spent in office this week - " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2el-BP-Fjy">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Week" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2el-BP-Fjy">
                                 <rect key="frame" x="20" y="28" width="555" height="31"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" label="timeSpenCurrentWeekText"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="20" y="115" width="360" height="36"/>
+                                    <rect key="frame" x="20" y="88" width="360" height="36"/>
                                 </variation>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Time spent in office this month - " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="IIl-on-nai">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Year" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="IIl-on-nai">
                                 <rect key="frame" x="20" y="28" width="555" height="31"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" label="timeSpenCurrentMonthText"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="20" y="167" width="360" height="36"/>
+                                    <rect key="frame" x="20" y="132" width="360" height="36"/>
                                 </variation>
                             </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Today" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hHA-Gv-nVC">
+                                <rect key="frame" x="20" y="28" width="555" height="31"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" label="timeSpentTodayText"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="20" y="44" width="360" height="36"/>
+                                </variation>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YNZ-kI-moa">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Update"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="20" y="176" width="71" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="updateData:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ol2-Bj-KPC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="2el-BP-Fjy"/>
                                 <exclude reference="IIl-on-nai"/>
+                                <exclude reference="YNZ-kI-moa"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="2el-BP-Fjy"/>
                                 <include reference="IIl-on-nai"/>
+                                <include reference="YNZ-kI-moa"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="monthLabel" destination="IIl-on-nai" id="1yM-v4-x8U"/>
+                        <outlet property="todayLabel" destination="hHA-Gv-nVC" id="bk4-z0-ZTX"/>
+                        <outlet property="weekLabel" destination="2el-BP-Fjy" id="S3t-zC-r32"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
